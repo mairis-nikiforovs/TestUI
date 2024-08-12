@@ -34,6 +34,8 @@ public interface UIElement {
 
     UIElement click();
 
+    UIElement scrollAndClick();
+
     UIElement doubleClick();
 
     Dimension getSize();

@@ -212,6 +212,11 @@ public class Element extends TestUI implements UIElement {
                 "accessibilityId: " + iOSElementAccId);
     }
 
+    public UIElement scrollAndClick(){
+        shouldBe().visible().scrollTo().view(true).click();
+        return getElementObject();
+    }
+
     public UIElement click() {
         long t = System.currentTimeMillis();
         String stringElement = getStringElement(accesibilityIdiOS, accesibilityId, iOSElement,
