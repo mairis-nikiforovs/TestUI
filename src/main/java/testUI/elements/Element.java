@@ -218,7 +218,7 @@ public class Element extends TestUI implements UIElement {
     }
 
     public UIElement scrollToCenter(){
-        scrollTo().view(Configuration.SCROLL_CONFIG).click();
+        scrollTo().view(Configuration.SCROLL_CONFIG);
         return getElementObject();
     }
 
