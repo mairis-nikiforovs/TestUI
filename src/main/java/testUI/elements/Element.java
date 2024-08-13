@@ -213,7 +213,12 @@ public class Element extends TestUI implements UIElement {
     }
 
     public UIElement scrollAndClick(){
-        shouldBe().visible().scrollTo().view(true).click();
+        shouldBe().visible().scrollTo().view(Configuration.SCROLL_CONFIG).click();
+        return getElementObject();
+    }
+
+    public UIElement scrollToCenter(){
+        scrollTo().view(Configuration.SCROLL_CONFIG).click();
         return getElementObject();
     }
 

@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Configuration extends SelenideConfiguration {
+
+    // RIMOWA CUSTOM
+
+    public static final String SCROLL_CONFIG =
+        "{ behavior: \"instant\", block: \"center\", inline:\"center\"}";
     public static final String ANDROID_PLATFORM = "android";
     public static final String IOS_PLATFORM = "ios";
     public static final String DESKTOP_PLATFORM = "desktop";
