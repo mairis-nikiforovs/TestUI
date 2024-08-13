@@ -36,6 +36,8 @@ public interface UIElement {
 
     UIElement scrollAndClick();
 
+    UIElement scrollToCenter();
+
     UIElement doubleClick();
 
     Dimension getSize();
