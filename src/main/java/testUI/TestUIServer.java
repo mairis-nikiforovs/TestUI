@@ -278,11 +278,13 @@ public class TestUIServer extends UIUtils {
             removeUsePort(driver - 1);
             removeUseBootstrapPort(driver - 1);
             if (Configuration.automationType.equals(IOS_PLATFORM)) {
-                if (getDrivers().size() != 0)
-                    getDrivers().get(driver - 1).close();
-                sleep(500);
+                if (!getIOSDrivers().isEmpty())
+                    removeiOSDriver(driver - 1);
+            } else if (Configuration.automationType.equals(ANDROID_PLATFORM)) {
+                if (!getAndroidDrivers().isEmpty())
+                    removeAndroidDriver(driver - 1);
             }
-            if (getDrivers().size() != 0) {
+            if (!getDrivers().isEmpty()) {
                 getDrivers().get(driver - 1).quit();
                 removeDriver(driver - 1);
             }
@@ -367,12 +369,15 @@ public class TestUIServer extends UIUtils {
         if (!Configuration.automationType.equals(DESKTOP_PLATFORM)) {
             removeUsePort(driver - 1);
             removeUseBootstrapPort(driver - 1);
-            if (Configuration.automationType.equals(IOS_PLATFORM)) {
-                getDrivers().get(driver - 1).close();
-                sleep(500);
-            }
             getDrivers().get(driver - 1).quit();
             removeDriver(driver - 1);
+            if (Configuration.automationType.equals(IOS_PLATFORM)) {
+                if (!getIOSDrivers().isEmpty())
+                    removeiOSDriver(driver - 1);
+            } else if (Configuration.automationType.equals(ANDROID_PLATFORM)) {
+                if (!getAndroidDrivers().isEmpty())
+                    removeAndroidDriver(driver - 1);
+            }
             if (getAppiumServices() != null && getAppiumServices().size() >= driver) {
                 getAppiumServices().get(driver - 1).stop();
                 getAppiumServices().remove(driver - 1);
